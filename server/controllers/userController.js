@@ -69,8 +69,8 @@ export const login = async (req, res) => {
       httpOnly: true,
       // secure: process.env.NODE_ENV === "production",
       // sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     return res.json({
@@ -107,8 +107,8 @@ export const logout = async (req, res) => {
       httpOnly: true,
       // secure: process.env.NODE_ENV === "production",
       // sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
     });
     return res.json({ success: true, message: "Logged Out" });
   } catch (error) {
