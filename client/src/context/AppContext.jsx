@@ -28,7 +28,7 @@ export const AppContextProvider = ({ children }) => {
 
   const isInitial = useRef(true);
 
-  /* ---------------- SELLER AUTH ---------------- */
+  /* -SELLER AUTH - */
   const fetchSeller = async () => {
     try {
       const { data } = await axios.get("/api/seller/is-auth");
@@ -38,7 +38,7 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
-  /* ---------------- USER AUTH ---------------- */
+  /* -- USER AUTH -- */
   const fetchUser = async () => {
     try {
       const { data } = await axios.get("/api/user/is-auth");
@@ -57,7 +57,7 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
-  /* ---------------- PRODUCTS ---------------- */
+  /* ---- PRODUCTS-- */
   const fetchProducts = async () => {
     try {
       const { data } = await axios.get("/api/product/list");
@@ -68,7 +68,7 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
-  /* ---------------- CART LOGIC ---------------- */
+  /* --- CART LOGIC -- */
   const addToCart = (itemId) => {
     setCartItems((prev) => ({
       ...prev,
@@ -117,14 +117,14 @@ export const AppContextProvider = ({ children }) => {
     return Math.round(total * 100) / 100;
   };
 
-  /* ---------------- INITIAL LOAD ---------------- */
+  /* ---- INITIAL LOAD -- */
   useEffect(() => {
     fetchSeller();
     fetchProducts();
     fetchUser();
   }, []);
 
-  /* ---------------- SYNC CART TO DB ---------------- */
+  /* ---SYNC CART TO DB ---- */
   useEffect(() => {
     if (!user) return;
 
